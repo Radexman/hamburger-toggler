@@ -1,0 +1,91 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #100;
+}
+
+main{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-btn{
+    position: relative;
+    width: 50%;
+    height: 250px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+
+    &__hamburger{
+        position: absolute;
+        top: 20;
+        width: 100%;
+        height: 50px;
+        border-radius: 15px;
+        background-color: #FFF700;
+        transition: all .3s ease-in-out;
+
+        &::before{
+            content: '';
+            position: absolute;
+            top: 100px;
+            width: 100%;
+            height: 50px;
+            border-radius: 15px;
+            background-color: #FFF700;
+            transition: all .3s ease-in-out;
+        }
+
+        &::after{
+            content: '';
+            position: absolute;
+            top: 200px;
+            height: 50px;
+            width: 100%;
+            border-radius: 15px;
+            background-color: #FFF700;
+            transition: all .1s ease-in-out;
+        }
+
+        &.open{
+            transform: rotate(360deg);
+            background: transparent;
+            animation: animation 2s infinite;
+
+            &::before{
+                transform: rotate(45deg);
+            }
+
+            &::after{
+                transform: rotate(316deg) translate(50px, -80px);
+            }
+        }
+    }
+}
+
+@keyframes animation {
+    0%{
+        transform: rotate(0);
+    }
+    20%{
+        transform: rotate(72deg);
+    }
+    40%{
+        transform: rotate(144deg);
+    }
+    60%{
+        transform: rotate(216deg);
+    }
+    80%{
+        transform: rotate(288deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+};
